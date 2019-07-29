@@ -1,0 +1,127 @@
+<div class="container">
+<form [formGroup]="personalForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+      <h3>Demographic Info</h3>
+  <label>
+    * First Name:
+    <input type="text" formControlName="firstName" class="form-control" required>
+  </label>
+  <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+  <div *ngIf="firstName.errors.required">
+    First Name is required.
+  </div>
+  </div>
+  <label>
+    * Last Name:
+    <input type="text" formControlName="lastName" class="form-control" required >
+  </label>
+  <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+  <div *ngIf="lastName.errors.required">
+    Last Name is required.
+  </div>
+  </div>
+  <label>
+    * Age:
+    <input type="text" formControlName="age" inputmode="numeric" pattern="[0-9]*" digitOnly class="form-control" required>
+  </label>
+  <div *ngIf="age.invalid && (age.dirty || age.touched)">
+  <div *ngIf="age.errors.required">
+    Age is required.
+  </div>
+  <div *ngIf="age.errors">
+    Age is not a valid number.
+  </div>
+  </div>
+  <label>
+    * Gender:
+    <input type="text" formControlName="gender" class="form-control" required>
+  </label>
+  <div *ngIf="gender.invalid && (gender.dirty || gender.touched)">
+  <div *ngIf="gender.errors.required">
+    Gender is required.
+  </div>
+  </div>
+  <label>
+    * Marital Status:
+    <input type="text" formControlName="maritalStatus" class="form-control" required>
+  </label>
+  <div *ngIf="maritalStatus.invalid && (maritalStatus.dirty || maritalStatus.touched)">
+  <div *ngIf="maritalStatus.errors.required">   
+      Marital Status is required.
+  </div>
+  </div>
+  <label>
+    * Ocupation:
+    <input type="text" formControlName="ocupation" class="form-control" required>
+  </label>
+  <div *ngIf="ocupation.invalid && (ocupation.dirty || ocupation.touched)">
+  <div *ngIf="ocupation.errors.required">
+    Ocupation is required.
+  </div>
+  </div>
+  <label>
+    * Education Level:
+    <input type="text" formControlName="educationLevel" class="form-control" required>
+  </label>
+  <div *ngIf="educationLevel.invalid && (educationLevel.dirty || educationLevel.touched)">
+  <div *ngIf="educationLevel.errors.required">
+    Education Level is required.
+  </div>
+  </div>
+  </div>
+  <div class="form-group">
+    <h3>Credit Card</h3>
+
+    <label>
+       * Bank:
+        <input type="text" formControlName="bank" class="form-control" required>
+    </label>
+    <div *ngIf="bank.invalid && (bank.dirty || bank.touched)">
+    <div *ngIf="bank.errors.required">
+        Bank is required.
+    </div>
+    </div>
+    <label>
+       * Number:
+        <input type="text" formControlName="number" inputmode="numeric" pattern="[0-9]*" digitOnly class="form-control" required>
+    </label>
+    <div *ngIf="number.invalid && (number.dirty || number.touched)">
+    <div *ngIf="number.errors.required">
+        Number is required.
+    </div>
+    <div *ngIf="number.errors.minlength">
+        Number length must be 16.
+    </div>
+    <div *ngIf="number.errors">
+        Number invalid.
+    </div>
+    </div>
+    <label>
+       * Franchise:
+        <input type="text" formControlName="franchise" class="form-control" required>
+    </label>
+    <div *ngIf="franchise.invalid && (franchise.dirty || franchise.touched)">
+    <div *ngIf="franchise.errors.required">
+        Franchise is required.
+    </div>
+    </div>
+    <label>
+       * Valid Thru:
+        <input type="text" formControlName="validThru" class="form-control" required>
+    </label>
+    <div *ngIf="validThru.invalid && (validThru.dirty || validThru.touched)">
+    <div *ngIf="validThru.errors.required">
+        Valid Thru is required.
+    </div>
+    </div>
+  </div>
+<button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+
+<!--state: {{ personalForm.status }}-->
+
+</div>
+<p>
+  Form Status: {{ personalForm.value | json }}
+</p>
